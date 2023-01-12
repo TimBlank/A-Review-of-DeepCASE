@@ -5,12 +5,12 @@ from datetime import datetime
 if __name__ == "__main__":
     try:
         Time = datetime.now()
-        textfile_name = 'Logs/ExperimentRunLogs_' + Time.strftime("%d.%m.%Y_%I.%M") + '.txt'
+        textfile_name = 'Logs/ExperimentRunLogs_' + Time.strftime("%d.%m.%Y_%H.%M") + '.txt'
         textfile = open(textfile_name, 'x')
-        begin = "============ExperimentRun-" + Time.strftime("%d.%m.%Y_%I.%M") + "-============"
+        begin = "============ExperimentRun-" + Time.strftime("%d.%m.%Y_%H:%M:%S") + "-============"
         textfile.write("\n")
         textfile.write(begin)
-        print("============New Experiment Run was creaeted: " + Time.strftime("%d.%m.%Y_%I.%M") + " ============")
+        print("============New Experiment Run was creaeted: " + Time.strftime("%d.%m.%Y_%H:%M:%S") + " ============")
     except:
         print ("Textdokument could not be createt your logs will be in Experiment-logs and should be manully copyed")
         textfile_name = "Experiment-logs.txt"
@@ -19,17 +19,17 @@ if __name__ == "__main__":
 
 # ----------------------------------------------------------------------------------------------------------------------
     try:
-        #print("New Experiment Run was started: " + Time.strftime("%d.%m.%Y_%I.%M") + " ============")
+        #print("New Experiment Run was started: " + Time.strftime("%d.%m.%Y_%H:%M:%S") + "-============")
         textfile = open(textfile_name, 'a')
         i = 1
-        experiment_quantity = 9
+        experiment_quantity = 1
         # experiment_quantity          --> Number of different Experiment in a Experiment Run
 
         # --------------------------------------------------------------------------------------------------------------
 
         while (i <= experiment_quantity):
-            preprocessor_data_path = 'data/hdfs/hdfs_test_normal'
-            # preprocessor_data_path        --> path to the experiment data,in paper this was data/hdfs/hdfs_test_normal
+            preprocessor_data_path = 'data/hdfs/hdfs_test_normal_DeepCASE'
+            # preprocessor_data_path        --> path to the experiment data,in paper this was data/hdfs/hdfs_test_normal_DeepCASE
             preprocessor_length = 10
             # preprocessor_length,          --> Number of events in context, in paper this was 10
             context_builder_input_size = 100
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             context_builder_learning_rate = 0.01
             # context_builder_learning_rate --> Learning rate to train with, in paper this was 0.01
 
-            print(str(i) + " - Experiment in Experiment Run")
+            print(str(i) + " - Experiment in Experiment Run -" + Time.strftime("%H:%M:%S"))
             # ----------------------------------------------------------------------------------------------------------
             if i ==1:
                 context_builder_epochs = 10
@@ -74,7 +74,6 @@ if __name__ == "__main__":
                 context_builder_learning_rate = 0.1
             elif i == 10:
                 context_builder_epochs = 10
-
             elif i == 11:
                 preprocessor_length = 10
             elif i == 12:
@@ -116,7 +115,7 @@ if __name__ == "__main__":
             elif i == 30:
                 preprocessor_length = 10
             #-----------------------------------------------------------------------------------------------------------
-            begin = "--------" +str(i) + " - Experiment in Experiment Run" + "------"
+            begin = "--------" +str(i) + " - Experiment in Experiment Run started-" + Time.strftime("%H:%M:%S") + "------"
             textfile.write("\n")
             textfile.write(begin)
             textfile.write("\n")
@@ -152,7 +151,7 @@ if __name__ == "__main__":
         textfile.write("\n" + "ExperimentRun Failed")
     finally:
         print("============ExperimentRun-END============")
-        end = "\n" + "============ExperimentRun-END" + "============"
+        end = "\n" + "============ExperimentRun-END-"+ Time.strftime("%d.%m.%Y_%H:%M:%S") +   "============"
         textfile.write(end)
 # ----------------------------------------------------------------------------------------------------------------------
 
