@@ -14,7 +14,7 @@ from datetime import datetime
 if __name__ == "__main__":
     Time = datetime.now()
     time = Time.strftime("%d.%m.%Y_%H:%M:%S")
-    input_dir = 'data/raw-data/LogParser/HDFS/'  # The input directory of log file
+    input_dir = 'data/LogParser/HDFS/'  # The input directory of log file
     output_dir = 'data/'                                        # The output directory of parsing results
     log_file = 'HDFS_2k.log'                                            # The input log file name
     log_format = '<Date> <Time> <Pid> <Level> <Component>: <Content>'   # HDFS log format

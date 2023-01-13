@@ -18,7 +18,7 @@ if __name__ == "__main__":
         textfile = open('Experiment-Logs/Experiment-logs.txt', 'a')
 
 # ----------------------------------------------------------------------------------------------------------------------
-    preprocessor_data_path_original = 'data/hdfs/hdfs_test_normal_DeepCASE'
+    preprocessor_data_path_original = 'data/DeepCASE/hdfs_test_normal_DeepCASE'
     #input_dir
     #output_dir
     #log_file
@@ -35,9 +35,9 @@ if __name__ == "__main__":
         # --------------------------------------------------------------------------------------------------------------
 
         while (i <= experiment_quantity):
-            preprocessor_data_path = 'data/hdfs/hdfs_test_normal_DeepCASE'        #later preprocessor_data_path_original
+            preprocessor_data_path = 'data/DeepCASE/hdfs_test_normal_DeepCASE'  #later preprocessor_data_path_original
             # preprocessor_data_path        --> path to the experiment data,
-            # in paper this was data/hdfs/hdfs_test_normal_DeepCASE
+            # in paper this was data/DeepLog/hdfs_test_normal_DeepCASE
             preprocessor_length = 10
             # preprocessor_length,          --> Number of events in context, in paper this was 10
             context_builder_input_size = 100
@@ -57,13 +57,13 @@ if __name__ == "__main__":
                 context_builder_epochs = 10
             elif i == 2:
                 context_builder_epochs = 10
-                preprocessor_data_path = 'data/hdfs/hdfs_test_abnormal_DeepLog'
+                preprocessor_data_path = 'data/DeepLog/hdfs_test_abnormal_DeepLog'
             elif i == 3:
                 context_builder_epochs = 10
-                preprocessor_data_path = 'data/hdfs/hdfs_test_normal_DeepLog'
+                preprocessor_data_path = 'data/DeepLog/hdfs_test_normal_DeepLog'
             elif i == 4:
                 context_builder_epochs = 10
-                preprocessor_data_path = 'data/hdfs/hdfs_train_DeepLog'
+                preprocessor_data_path = 'data/DeepLog/hdfs_train_DeepLog'
             elif i == 5:
                 #should Fail
                 context_builder_epochs = 10
