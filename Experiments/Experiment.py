@@ -1,11 +1,11 @@
-import subprocess
 import experiment_hdfs
 from datetime import datetime
+#import LogParser
 
 if __name__ == "__main__":
     try:
         Time = datetime.now()
-        textfile_name = 'Logs/ExperimentRunLogs_' + Time.strftime("%d.%m.%Y_%H.%M") + '.txt'
+        textfile_name = 'Experiment-Logs/ExperimentRunLogs_' + Time.strftime("%d.%m.%Y_%H.%M") + '.txt'
         textfile = open(textfile_name, 'x')
         begin = "============ExperimentRun-" + Time.strftime("%d.%m.%Y_%H:%M:%S") + "-============"
         textfile.write("\n")
@@ -15,8 +15,15 @@ if __name__ == "__main__":
         print ("Textdokument could not be createt your logs will be in Experiment-logs and should be manully copyed")
         textfile_name = "Experiment-logs.txt"
     finally:
-        textfile = open('Logs/Experiment-logs.txt', 'a')
+        textfile = open('Experiment-Logs/Experiment-logs.txt', 'a')
 
+# ----------------------------------------------------------------------------------------------------------------------
+    preprocessor_data_path_original = 'data/hdfs/hdfs_test_normal_DeepCASE'
+    #input_dir
+    #output_dir
+    #log_file
+    #log_format
+    #LogParser.extractLog(input_dir,output_dir,log_file,log_format)
 # ----------------------------------------------------------------------------------------------------------------------
     try:
         #print("New Experiment Run was started: " + Time.strftime("%d.%m.%Y_%H:%M:%S") + "-============")
@@ -28,8 +35,9 @@ if __name__ == "__main__":
         # --------------------------------------------------------------------------------------------------------------
 
         while (i <= experiment_quantity):
-            preprocessor_data_path = 'data/hdfs/hdfs_test_normal_DeepCASE'
-            # preprocessor_data_path        --> path to the experiment data,in paper this was data/hdfs/hdfs_test_normal_DeepCASE
+            preprocessor_data_path = 'data/hdfs/hdfs_test_normal_DeepCASE'        #later preprocessor_data_path_original
+            # preprocessor_data_path        --> path to the experiment data,
+            # in paper this was data/hdfs/hdfs_test_normal_DeepCASE
             preprocessor_length = 10
             # preprocessor_length,          --> Number of events in context, in paper this was 10
             context_builder_input_size = 100
