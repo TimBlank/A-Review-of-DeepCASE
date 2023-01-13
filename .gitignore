@@ -69,7 +69,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+deepCASE/docs/_build/
 
 # PyBuilder
 target/
@@ -130,7 +130,7 @@ dmypy.json
 
 # Ignore data
 saves/
-example/data/
+deepCASE/example/data/
 Experiments/Experiment-Logs/
 
 /Logparser/

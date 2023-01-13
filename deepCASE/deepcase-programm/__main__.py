@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     # Parse arguments
     parser = argparse.ArgumentParser(
-        prog            = "deepcase.py",
+        prog            = "deepcase-programm.py",
         description     = "DeepCASE: Semi-Supervised Contextual Analysis of Security Events",
         formatter_class = argformat.StructuredFormatter,
     )
@@ -278,7 +278,7 @@ if __name__ == "__main__":
                 "Cannot assign clusters because labels were provided. Please "
                 "provide labeles either through the --load-clusters argument or"
                 " by loading sequences with tagged with a label. See "
-                "deepcase.preprocessor.Preprocessor for information on how to "
+                "deepcase-programm.preprocessor.Preprocessor for information on how to "
                 "load input samples with a given label."
             )
 
