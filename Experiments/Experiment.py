@@ -138,6 +138,7 @@ if __name__ == "__main__":
             textfile.writelines(parameters)
             textfile.write("\n")
             try:
+                #10 mal ausführen und den Durchschnitt zurück geben und speichern
                 content = experiment_hdfs.experiment_hdfs(preprocessor_data_path,
                                                           preprocessor_length,
                                                           context_builder_input_size,
