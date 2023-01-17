@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../deepcase-programm'))
+sys.path.insert(0, os.path.abspath('../../deepcase_programm'))
 
 
 # -- Project information -----------------------------------------------------
@@ -57,4 +57,4 @@ html_static_path = ['_static']
 master_doc = 'index'
 
 # -- Mock modules ------------------------------------------------------------
-autodoc_mock_imports = ['cryptography', 'deepcase-programm', 'matplotlib', 'networkx', 'numpy', 'pandas', 'pyshark', 'scipy', 'sklearn', 'torch', 'tqdm']
+autodoc_mock_imports = ['cryptography', 'deepcase_programm', 'matplotlib', 'networkx', 'numpy', 'pandas', 'pyshark', 'scipy', 'sklearn', 'torch', 'tqdm']

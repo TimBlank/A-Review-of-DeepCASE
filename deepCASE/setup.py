@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="deepcase-programm",
+    name="deepcase_programm",
     version="1.0.1",
     author="Thijs van Ede",
     author_email="t.s.vanede@utwente.nl",

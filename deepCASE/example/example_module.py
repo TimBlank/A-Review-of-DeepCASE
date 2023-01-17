@@ -72,7 +72,7 @@ if __name__ == "__main__":
     # do not require the predicted values on the train dataset, simply
     # substitute fit_predict with fit and it will run slightly quicker because
     # DeepCASE skip the prediction over the training dataset and simply return
-    # the deepcase-programm object itself. Other than that, both calls are exactly the
+    # the deepcase_programm object itself. Other than that, both calls are exactly the
     # same.
     prediction_train = deepcase.fit_predict(
         # Input data

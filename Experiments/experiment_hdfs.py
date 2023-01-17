@@ -4,8 +4,8 @@ import numpy as np
 import torch
 
 # DeepCASE Imports
-from deepcase.preprocessing   import Preprocessor
-from deepcase.context_builder import ContextBuilder
+from deepCASE.deepcase_programm.preprocessing   import Preprocessor
+from deepCASE.deepcase_programm.context_builder import ContextBuilder
 def experiment_hdfs(preprocessor_data_path,preprocessor_length,context_builder_input_size,context_builder_hidden_size,context_builder_epochs,context_builder_batch_size,context_builder_learning_rate):
     #if __name__ == "__main__":
         ########################################################################
