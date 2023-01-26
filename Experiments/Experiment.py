@@ -28,13 +28,14 @@ if __name__ == "__main__":
     try:
         #print("New Experiment Run was started: " + Time.strftime("%d.%m.%Y_%H:%M:%S") + "-============")
         textfile = open(textfile_name, 'a')
-        i = 1
-        experiment_quantity = 1
+
+        experiment_quantity = 2
         # experiment_quantity          --> Number of different Experiment in a Experiment Run
 
         # --------------------------------------------------------------------------------------------------------------
-
-        while (i <= experiment_quantity):
+        # for i in range (experiment_quantity):
+        i = 0
+        while i < experiment_quantity:
             preprocessor_data_path = 'data/DeepCASE/hdfs_test_normal_DeepCASE'  #later preprocessor_data_path_original
             # preprocessor_data_path        --> path to the experiment data,
             # in paper this was data/DeepLog/hdfs_test_normal_DeepCASE
@@ -52,9 +53,13 @@ if __name__ == "__main__":
             # context_builder_learning_rate --> Learning rate to train with, in paper this was 0.01
 
             print(str(i) + " - Experiment in Experiment Run -" + Time.strftime("%H:%M:%S"))
-            # ----------------------------------------------------------------------------------------------------------
-            if i ==1:
+            # -------------------------------------preprocessor_data_path = 'data/DeepCASE/hdfs_test_normal_DeepCASE'---------------------------------------------------------------------
+            if i == 0:
                 context_builder_epochs = 10
+                preprocessor_data_path = 'data/Proccessed_data/HDFS_2k.log_templates.csv'
+            elif i == 1:
+                context_builder_epochs = 10
+                preprocessor_data_path = 'data/Proccessed_data/HDFS_2k.log_structured.csv'
             elif i == 2:
                 context_builder_epochs = 10
                 preprocessor_data_path = 'data/DeepLog/hdfs_test_abnormal_DeepLog'
@@ -64,64 +69,140 @@ if __name__ == "__main__":
             elif i == 4:
                 context_builder_epochs = 10
                 preprocessor_data_path = 'data/DeepLog/hdfs_train_DeepLog'
+                # ----------------------------------- preprocessor_length = 10-----------------------------------------------------------------------
             elif i == 5:
-                #should Fail
+                print("++++++++++++++++++++++++ExperimentRun-preprocessor_length++++++++++++++++++++++++")
                 context_builder_epochs = 10
-                preprocessor_length = 10
+                preprocessor_length = 1
             elif i == 6:
                 context_builder_epochs = 10
-                context_builder_input_size = 10
+                preprocessor_length = 5
             elif i == 7:
                 context_builder_epochs = 10
-                context_builder_hidden_size = 3
+                preprocessor_length = 50
             elif i == 8:
                 context_builder_epochs = 10
-                context_builder_batch_size = 125
+                preprocessor_length = 100
             elif i == 9:
                 context_builder_epochs = 10
-                context_builder_learning_rate = 0.1
+                preprocessor_length = 1000
+                # ------------------------------context_builder_input_size = 100----------------------------------------------------------------------------
             elif i == 10:
+                print("++++++++++++++++++++++++ExperimentRun-context_builder_input_size++++++++++++++++++++++++")
                 context_builder_epochs = 10
+                context_builder_input_size = 10
             elif i == 11:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_input_size = 50
             elif i == 12:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_input_size = 150
             elif i == 13:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_input_size = 200
             elif i == 14:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_input_size = 500
+                # ----------------------context_builder_hidden_size = 30------------------------------------------------------------------------------------
             elif i == 15:
-                preprocessor_length = 10
+                print("++++++++++++++++++++++++ExperimentRun-context_builder_hidden_size++++++++++++++++++++++++")
+                context_builder_epochs = 10
+                context_builder_hidden_size = 3
             elif i == 16:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_hidden_size = 10
             elif i == 17:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_hidden_size = 20
             elif i == 18:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_hidden_size = 50
             elif i == 19:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_hidden_size = 100
+                # ----------------------------------------context_builder_epochs = 100------------------------------------------------------------------
             elif i == 20:
-                preprocessor_length = 10
+                print("++++++++++++++++++++++++ExperimentRun-context_builder_epochs++++++++++++++++++++++++")
+                context_builder_epochs = 1
             elif i == 21:
-                preprocessor_length = 10
+                context_builder_epochs = 50
             elif i == 22:
-                preprocessor_length = 10
+                context_builder_epochs = 150
             elif i == 23:
-                preprocessor_length = 10
+                context_builder_epochs = 250
             elif i == 24:
-                preprocessor_length = 10
+                context_builder_epochs = 500
+                # --------------------------------------context_builder_batch_size = 128--------------------------------------------------------------------
             elif i == 25:
-                preprocessor_length = 10
+                print("++++++++++++++++++++++++ExperimentRun-context_builder_batch_size++++++++++++++++++++++++")
+                context_builder_epochs = 10
+                context_builder_batch_size = 1
             elif i == 26:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_batch_size = 64
             elif i == 27:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_batch_size = 100
             elif i == 28:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_batch_size = 150
             elif i == 29:
-                preprocessor_length = 10
+                context_builder_epochs = 10
+                context_builder_batch_size = 200
+                # --------------------------------------------context_builder_learning_rate = 0.01--------------------------------------------------------------
             elif i == 30:
-                preprocessor_length = 10
+                print("++++++++++++++++++++++++ExperimentRun-context_builder_learning_rate++++++++++++++++++++++++")
+                context_builder_epochs = 10
+                context_builder_learning_rate = 0.0001
+            elif i == 31:
+                context_builder_epochs = 10
+                context_builder_learning_rate = 0.1
+            elif i == 32:
+                context_builder_epochs = 10
+                context_builder_learning_rate = 1
+            elif i == 33:
+                context_builder_epochs = 10
+                context_builder_learning_rate = 10
+            elif i == 34:
+                context_builder_epochs = 10
+                context_builder_learning_rate = 100
+                # --------------------------------------------Multi--------------------------------------------------------------
+            elif i == 35:
+                print("++++++++++++++++++++++++ExperimentRun-Multi++++++++++++++++++++++++")
+                preprocessor_length = 1
+                context_builder_input_size = 10
+                context_builder_hidden_size = 3
+                context_builder_epochs = 1
+                context_builder_batch_size = 1
+                context_builder_learning_rate = 0.0001
+            elif i == 36:
+                preprocessor_length = 1
+                context_builder_input_size = 50
+                context_builder_hidden_size = 10
+                context_builder_epochs = 50
+                context_builder_batch_size = 64
+                context_builder_learning_rate = 0.1
+            elif i == 37:
+                preprocessor_length = 1
+                context_builder_input_size = 150
+                context_builder_hidden_size = 20
+                context_builder_epochs = 150
+                context_builder_batch_size = 100
+                context_builder_learning_rate = 1
+            elif i == 38:
+                preprocessor_length = 1
+                context_builder_input_size = 200
+                context_builder_hidden_size = 50
+                context_builder_epochs = 250
+                context_builder_batch_size = 150
+                context_builder_learning_rate = 10
+            elif i == 39:
+                preprocessor_length = 1
+                context_builder_input_size = 500
+                context_builder_hidden_size = 250
+                context_builder_epochs = 500
+                context_builder_batch_size = 200
+                context_builder_learning_rate = 100
             #-----------------------------------------------------------------------------------------------------------
             begin = "--------" +str(i) + " - Experiment in Experiment Run started-" + Time.strftime("%H:%M:%S") + "------"
             textfile.write("\n")
@@ -138,14 +219,15 @@ if __name__ == "__main__":
             textfile.writelines(parameters)
             textfile.write("\n")
             try:
-                #10 mal ausführen und den Durchschnitt zurück geben und speichern
-                content = experiment_hdfs.experiment_hdfs(preprocessor_data_path,
-                                                          preprocessor_length,
-                                                          context_builder_input_size,
-                                                          context_builder_hidden_size,
-                                                          context_builder_epochs,
-                                                          context_builder_batch_size,
-                                                          context_builder_learning_rate)
+                for g in range (1):
+                    #10 mal ausführen und den Durchschnitt zurück geben und speichern
+                    content = experiment_hdfs.experiment_hdfs(preprocessor_data_path,
+                                                              preprocessor_length,
+                                                              context_builder_input_size,
+                                                              context_builder_hidden_size,
+                                                              context_builder_epochs,
+                                                              context_builder_batch_size,
+                                                              context_builder_learning_rate)
                 textfile.writelines(content)
                 textfile.write("\n")
             except:

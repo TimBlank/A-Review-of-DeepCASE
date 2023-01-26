@@ -3,10 +3,10 @@ import sys
 sys.path.append('../')
 from Logparser import Drain
 
-input_dir  = '../Experiments/data/raw-data/LogParser/HDFS/'  # The input directory of log file
+input_dir  = '../Experiments/data/ATLAS/M1/h1'  # The input directory of log file
 #input_dir  = '../logs/HDFS/'  # The input directory of log file
-output_dir = 'Drain_result/'  # The output directory of parsing results
-log_file   = 'HDFS_2k.log'  # The input log file name
+output_dir = '../Experiments/data/Proccessed_data'  # The output directory of parsing results
+log_file   = 'security_events.txt'  # The input log file name
 log_format = '<Date> <Time> <Pid> <Level> <Component>: <Content>'  # HDFS log format
 # Regular expression list for optional preprocessing (default: [])
 regex      = [

@@ -101,13 +101,13 @@ def experiment_hdfs(preprocessor_data_path,preprocessor_length,context_builder_i
         y_pred = y_pred     .cpu().numpy()
 
         # Print classification report
-        print(classification_report(
+        #print(classification_report(
+        #    y_true = y_test,
+        #    y_pred = y_pred,
+        #    digits = 4,
+        #))
+        return  classification_report(
             y_true = y_test,
             y_pred = y_pred,
             digits = 4,
-        ))
-        return classification_report(
-                y_true = y_test,
-                y_pred = y_pred,
-                digits = 4,
-            )
+        )
