@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import re
 from datetime import datetime
+from DeepLog_preprocessor import Preprocessor
 
 """
     Variables   
@@ -45,5 +46,15 @@ if __name__ == "__main__":
     textfile = open(output_dir + log_file, 'w')
     content = '\n'.join(log_list)
     textfile.writelines(content)
+
+    preprocessor = Preprocessor(
+        length=20,  # Extract sequences of 20 items
+        timeout=float('inf'),  # Do not include a maximum allowed time between events
+    )
+
+    # Load data from csv file
+    textfile.writelines(preprocessor.csv(content))
+    #X, y, label, mapping = preprocessor.csv()
+
 
 
