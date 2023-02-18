@@ -1,0 +1,17 @@
+EventId,EventTemplate,Occurrences
+336d5ebc,-,37401
+f8141c4b,Granted by <*>,1090
+d77b0137,SeBackupPrivilege,2032
+e9631c5e,Unknown or unchecked,1315
+6702273e,Not granted,6
+8da0f41b,"-""",41
+e0617a78,"MICROSOFT_AUTHENTICATION_PACKAGE_V1_<*>""",1
+bfb6618a,"pku2u""",1
+2b36c0dc,"TSSSP""",1
+cf787349,"WDigest""",1
+a0de9ddc,"Microsoft Unified Security Protocol Provider""",1
+af4495a9,"Schannel""",1
+e49e2bd6,"NTLM""",1
+a1813a2c,"Kerberos""",1
+de06d47a,"NegoExtender""",1
+5eed15da,"Negotiate""",1
