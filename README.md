@@ -1,5 +1,6 @@
 # A-Review-of-DeepCASE 
-This repository contains the code for [DeepCASE](#References) as well as new code by the author of the paper [[PDF]}(#comming soon) 
+This repository contains the code for [DeepCASE](#References) as well as new code by the author of the Master Thesis [[PDF]]((https://))
+"A Review of DeepCASE_Improved Requierements, Documentation and Evaluation"
 
 This code is only made as an example and should be improved upon in further theses.
 
