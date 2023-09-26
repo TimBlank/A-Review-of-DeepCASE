@@ -146,6 +146,7 @@ def experiment_module(
         path=preprocessor_data_path,
         verbose=True,
     )
+    print (context + " <Content | events> " + events + labels +" <labels | mapping> " + mapping)
 
     # In case no labels are provided, set labels to -1
     if labels is None:

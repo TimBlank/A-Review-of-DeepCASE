@@ -30,7 +30,7 @@ def experiment_hdfs_csv(
         textfile.writelines(parameters)
         textfile.write("\n")
         try:
-            for g in range (1):
+            for g in range (10):
                 #10 mal ausführen und den Durchschnitt zurück geben und speichern
                 content = DeepCASE_Module_txt.experiment_hdfs(preprocessor_data_path,
                                                           preprocessor_length,
@@ -87,7 +87,7 @@ def experiment_module_csv(
     textfile.writelines(parameters)
     textfile.write("\n")
     try:
-        for g in range(1):
+        for g in range(10):
             # 10 mal ausführen und den Durchschnitt zurück geben und speichern
             content = DeepCASE_Module_csv.experiment_module(preprocessor_data_path,
                                                             preprocessor_length,
@@ -147,7 +147,7 @@ def experiment_hdfs_txt(
         textfile.writelines(parameters)
         textfile.write("\n")
         try:
-            for g in range(1):
+            for g in range(10):
                 # 10 mal ausführen und den Durchschnitt zurück geben und speichern
                 content = DeepCASE_Module_txt.experiment_hdfs(preprocessor_data_path,
                                                               preprocessor_length,
@@ -204,7 +204,7 @@ def experiment_module_txt(
     textfile.writelines(parameters)
     textfile.write("\n")
     try:
-        for g in range(1):
+        for g in range(10):
             # 10 mal ausführen und den Durchschnitt zurück geben und speichern
             content = DeepCASE_Module_txt.experiment_module(preprocessor_data_path,
                                                             preprocessor_length,
@@ -226,4 +226,3 @@ def experiment_module_txt(
         textfile.write("\n" + "----------->ExperimentRun Failed<-----------")
     finally:
         print("------------Experiment END------------")
-

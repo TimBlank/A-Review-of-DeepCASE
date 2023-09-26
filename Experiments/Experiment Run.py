@@ -1,9 +1,13 @@
-import DeepCASE_Module_txt
 from datetime import datetime
 import Experiment
-#import LogParser
 
 if __name__ == "__main__":
+    '''
+    In this snippet the experiments are writen down into a specific txt document with the date.
+    To prevent that the document is overwriten and to log the experiments if the document can´t be created the document 
+    Experiment-logs.txt was created where each run is loged under each other.
+    The documents can be found in the folder Experiments/Experiment-Logs    
+    '''
     try:
         Time = datetime.now()
         textfile_name = 'Experiment-Logs/ExperimentRunLogs_' + Time.strftime("%Y.%m.%d_%H.%M") + '.txt'
@@ -18,19 +22,11 @@ if __name__ == "__main__":
     finally:
         textfile = open('Experiment-Logs/Experiment-logs.txt', 'a')
 
-# ----------------------------------------------------------------------------------------------------------------------
-    #preprocessor_data_path_original = 'data/Proccessed_data/security_events.txt_structured.csv'
-    #input_dir
-    #output_dir
-    #log_file
-    #log_format
-    #LogParser.extractLog(input_dir,output_dir,log_file,log_format)
-    #preprocessor_data_path = preprocessor_data_path_original
-# ----------------------------------------------------------------------------------------------------------------------
     try:
-        experiment_quantity = 70
-        # experiment_quantity           --> Number of different Experiment in a Experiment Run max:70
-        Experiment_run_number = 60
+        experiment_quantity = 5
+        # experiment_quantity           --> Number of different Experiment in a Experiment Run current max:70.
+        # Standard Value is Start Value +1
+        Experiment_run_number = 10
         # Experiment_run_number         --> Start Value for the Experiment standard is 0
         while Experiment_run_number < experiment_quantity:
             preprocessor_data_path = 'data/DeepCASE/hdfs_test_normal_DeepCASE'  #later preprocessor_data_path_original
@@ -38,13 +34,13 @@ if __name__ == "__main__":
             # in paper this was data/DeepLog/hdfs_test_normal_DeepCASE
             preprocessor_length = 10
             # preprocessor_length,          --> Number of events in context, in paper this was 10
-            context_builder_input_size = 100
+            context_builder_input_size = 30
             # context_builder_input_size,   --> Number of input features to expect, in paper this was 30
             context_builder_features = 300
             # context_builder_features,   --> Number of input features to expect, in paper it was set to 300
-            context_builder_hidden_size = 30
+            context_builder_hidden_size = 128
             # context_builder_hidden_size,  --> Number of nodes in hidden layer, in paper this was 128
-            context_builder_epochs = 10
+            context_builder_epochs = 100
             # context_builder_epochs,       --> Number of epochs to train with, in paper this was 100
             context_builder_batch_size = 128
             # context_builder_batch_size,   --> Number of samples in each training batch, in paper this was 128
@@ -67,19 +63,15 @@ if __name__ == "__main__":
             if Experiment_run_number == 0:
                 print("++++++++++++++++++++++++ExperimentRun-preprocessor_data_path++++++++++++++++++++++++")
                 textfile.write("\n" + "++++++++++++++++++++++++ExperimentRun-preprocessor_data_path++++++++++++++++++++++++")
-                preprocessor_data_path = 'data/Proccessed_data/HDFS_2k.log_templates.csv'
-                context_builder_features = 17
+                preprocessor_data_path = 'data/Proccessed_data/firefox.txt_transformt.csv'
             elif Experiment_run_number == 1:
-                preprocessor_data_path = 'data/Proccessed_data/HDFS_2k.log_structured.csv'
-                context_builder_features = 10
+                preprocessor_data_path = 'data/Proccessed_data/firefox.txt_templates.csv'
             elif Experiment_run_number == 2:
                 preprocessor_data_path = 'data/Proccessed_data/security_events.txt_templates.csv'
-                context_builder_features = 3
             elif Experiment_run_number == 3:
                 preprocessor_data_path = 'data/Proccessed_data/security_events.txt_structured.csv'
-                context_builder_features = 10
             elif Experiment_run_number == 4:
-                preprocessor_data_path = 'data/Proccessed_data/HDFS_2k.log_templates.csv'
+                preprocessor_data_path = 'data/Proccessed_data/HDFS_2k.log_structured.csv'
                 # ----------------------------------- preprocessor_length = 10-----------------------------------------------------------------------
             elif Experiment_run_number == 5:
                 print("++++++++++++++++++++++++ExperimentRun-preprocessor_length++++++++++++++++++++++++")
@@ -210,7 +202,6 @@ if __name__ == "__main__":
             elif Experiment_run_number == 39:
                 context_builder_epochs = 250
                 context_builder_learning_rate = 0.05
-            """
                 # --------------------------------------------interpreter_eps = 0.1--------------------------------------------------------------
             elif Experiment_run_number == 40:
                 print("++++++++++++++++++++++++ExperimentRun-interpreter_eps++++++++++++++++++++++++")
@@ -281,7 +272,7 @@ if __name__ == "__main__":
             elif Experiment_run_number == 55:
                 print("++++++++++++++++++++++++ExperimentRun-interpreter_iterations++++++++++++++++++++++++")
                 textfile.write("\n" + "++++++++++++++++++++++++ExperimentRun-interpreter_iterations++++++++++++++++++++++++")
-                interpreter_iterations = 
+                interpreter_iterations =  50
                 preprocessor_data_path = 'data/DeepLog/hdfs_test_normal_DeepLog'
 
             elif Experiment_run_number == 56:
@@ -363,9 +354,14 @@ if __name__ == "__main__":
                 interpreter_iterations = 150
                 interpreter_query_batch_size = 4096
                 preprocessor_data_path = 'data/DeepLog/hdfs_test_normal_DeepLog'
-                
-            """
             #-----------------------------------------------------------------------------------------------------------
+
+            '''
+            This snipied watches for the two destinced modes of DeepCASE
+            The first is used for the prediction like in the "example hdfs"
+            The second is for the main functionality needing a sutible data set.
+            '''
+
             if preprocessor_data_path == 'data/DeepCASE/hdfs_test_normal_DeepCASE':
                 try:
                     Experiment.experiment_hdfs_txt(textfile_name,
@@ -404,6 +400,10 @@ if __name__ == "__main__":
                     print("Experiment Faild ")
                     Experiment_run_number = Experiment_run_number + 1
         # --------------------------------------------------------------------------------------------------------------
+        '''
+        If any runs can not be complete they will be shown as "Faild runs" while the other experiemnts are uneffected.   
+        '''
+
     except:
         print(">>>>>>>>>>> ExperimentRun Faild <<<<<<<<<<<<<<<")
         textfile.write("\n" + "ExperimentRun Failed")

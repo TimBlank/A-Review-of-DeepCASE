@@ -55,6 +55,3 @@ if __name__ == "__main__":
     # Load data from csv file
     textfile.writelines(preprocessor.csv(content))
     #X, y, label, mapping = preprocessor.csv()
-
-
-
